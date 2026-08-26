@@ -1,0 +1,13 @@
+# Python environment & cache
+__pycache__/
+*.py[cod]
+.venv/
+env/
+.ipynb_checkpoints/
+
+# Data & Output CSVs
+*.jsonl
+*.csv
+
+# HuggingFace Cache
+.cache/
