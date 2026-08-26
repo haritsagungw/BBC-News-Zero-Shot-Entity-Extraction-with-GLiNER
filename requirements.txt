@@ -1,0 +1,6 @@
+gliner==0.2.28
+pandas
+transformers
+torch
+pydantic-settings
+python-dotenv
