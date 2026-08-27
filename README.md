@@ -1,11 +1,11 @@
 # BBC-News-Zero-Shot-Entity-Extraction-with-GLiNER
 A high-performance Zero-Shot Named Entity Recognition (NER) pipeline tailored for Indonesian news processing. Built on **GLiNER (`urchade/gliner_multi-v2.1`)**, this project extracts domain-specific policy and regulatory entities from long-form text without requiring fine-tuning or training data.
 ## Features
-* Zero-Shot Flexibility: Dynamically extracts complex entity schemas (e.g., policy names, regulator agencies, target demographics, and budget allocations) using natural language prompts.
-* Sliding-Window Chunking: Handles long text articles by splitting input into 384-token windows with 64-token overlap, preserving contextual boundaries across chunk cuts.
-* GPU-Accelerated Inference: Leverages `batch_predict_entities` for efficient GPU parallelization during large-scale extraction.
-* Overlap Deduplication: Uses confidence-score sorting and span-overlap matching to resolve duplicate entities caused by overlapping chunk boundaries.
-* Resilient Data Ingestion: Safely parses line-delimited JSON (`.jsonl`) streams with built-in error handling for malformed data.
+1. Zero-Shot Flexibility: Dynamically extracts complex entity schemas (e.g., policy names, regulator agencies, target demographics, and budget allocations) using natural language prompts.
+2. Sliding-Window Chunking: Handles long text articles by splitting input into 384-token windows with 64-token overlap, preserving contextual boundaries across chunk cuts.
+3. GPU-Accelerated Inference: Leverages `batch_predict_entities` for efficient GPU parallelization during large-scale extraction.
+4. Overlap Deduplication: Uses confidence-score sorting and span-overlap matching to resolve duplicate entities caused by overlapping chunk boundaries.
+5. Resilient Data Ingestion: Safely parses line-delimited JSON (`.jsonl`) streams with built-in error handling for malformed data.
 ## Pipeline Workflow
 1. Ingestion & Validation: Reads JSONL datasets, validates string lengths, and sanitizes input data.
 2. Text Segmentation: Tokens are chunked using DeBERTa/GLiNER tokenizers while preserving character offset maps.
@@ -20,7 +20,7 @@ git clone [https://github.com/your-username/bbc-gliner-entity-extraction.git](ht
 cd bbc-gliner-entity-extraction
 pip install -r requirements.txt
 ```
-## 2. Basic Usage
+### 2. Basic Usage
 ``` python
 from gliner import GLiNER
 
