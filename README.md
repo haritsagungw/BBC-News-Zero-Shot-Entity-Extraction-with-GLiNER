@@ -1,20 +1,20 @@
 # BBC-News-Zero-Shot-Entity-Extraction-with-GLiNER
 A high-performance Zero-Shot Named Entity Recognition (NER) pipeline tailored for Indonesian news processing. Built on **GLiNER (`urchade/gliner_multi-v2.1`)**, this project extracts domain-specific policy and regulatory entities from long-form text without requiring fine-tuning or training data.
 ## Features
-* **Zero-Shot Flexibility:** Dynamically extracts complex entity schemas (e.g., policy names, regulator agencies, target demographics, and budget allocations) using natural language prompts.
-* **Sliding-Window Chunking:** Handles long text articles by splitting input into 384-token windows with 64-token overlap, preserving contextual boundaries across chunk cuts.
-* **GPU-Accelerated Inference:** Leverages `batch_predict_entities` for efficient GPU parallelization during large-scale extraction.
-* **Overlap Deduplication:** Uses confidence-score sorting and span-overlap matching to resolve duplicate entities caused by overlapping chunk boundaries.
-* **Resilient Data Ingestion:** Safely parses line-delimited JSON (`.jsonl`) streams with built-in error handling for malformed data.
+* Zero-Shot Flexibility: Dynamically extracts complex entity schemas (e.g., policy names, regulator agencies, target demographics, and budget allocations) using natural language prompts.
+* Sliding-Window Chunking: Handles long text articles by splitting input into 384-token windows with 64-token overlap, preserving contextual boundaries across chunk cuts.
+* GPU-Accelerated Inference: Leverages `batch_predict_entities` for efficient GPU parallelization during large-scale extraction.
+* Overlap Deduplication: Uses confidence-score sorting and span-overlap matching to resolve duplicate entities caused by overlapping chunk boundaries.
+* Resilient Data Ingestion: Safely parses line-delimited JSON (`.jsonl`) streams with built-in error handling for malformed data.
 ## Pipeline Workflow
-1. **Ingestion & Validation:** Reads JSONL datasets, validates string lengths, and sanitizes input data.
-2. **Text Segmentation:** Tokens are chunked using DeBERTa/GLiNER tokenizers while preserving character offset maps.
-3. **Zero-Shot Extraction:** GLiNER predicts targeted entity labels using configurable threshold scores.
-4. **Offset Alignment & Deduplication:** Local chunk offsets are re-mapped to original global text positions, followed by Non-Maximum Suppression (NMS) deduplication.
-5. **Reporting & Export:** Generates an analytical extraction report and exports structured entities to CSV[cite: 2].
+1. Ingestion & Validation: Reads JSONL datasets, validates string lengths, and sanitizes input data.
+2. Text Segmentation: Tokens are chunked using DeBERTa/GLiNER tokenizers while preserving character offset maps.
+3. Zero-Shot Extraction: GLiNER predicts targeted entity labels using configurable threshold scores.
+4. Offset Alignment & Deduplication: Local chunk offsets are re-mapped to original global text positions, followed by Non-Maximum Suppression (NMS) deduplication.
+5. Reporting & Export: Generates an analytical extraction report and exports structured entities to CSV.
 ## Quick Start
 ### 1. Installation
-Clone the repository and install the dependencies[cite: 2]:
+Clone the repository and install the dependencies:
 ```bash
 git clone [https://github.com/your-username/bbc-gliner-entity-extraction.git](https://github.com/your-username/bbc-gliner-entity-extraction.git)
 cd bbc-gliner-entity-extraction
